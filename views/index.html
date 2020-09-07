@@ -1,0 +1,66 @@
+{% extends "layout.html" %} {% block title %} Londoners {% endblock %} {% block
+content %}
+<h1>Londoners</h1>
+
+<p>
+  Use the form below to find people who are listed as living in London or who
+  have coordinates within a range in miles.
+</p>
+
+<form id="londoners" action="/" method="GET" class="search" novalidate>
+  <label for="radius" class="search__label {{ 'error' if errors }}"
+    >Distance from London</label
+  >
+  <div class="search__hint">Must be a whole number in miles</div>
+  {% if errors !== undefined %} {% for error in errors %}
+  <div class="error-message" id="bouncer-error_radius">{{ error.msg }}</div>
+  {% endfor %} {% endif %}
+  <input
+    id="radius"
+    name="radius"
+    type="text"
+    min="0"
+    step="any"
+    required
+    class="{{ 'error' if errors }}"
+    value="{{ radius }}"
+    pattern="[0-9]*"
+    inputmode="numeric"
+  />
+  <input type="submit" class="search__button" value="Submit" />
+</form>
+
+{% if radius !== undefined %}
+<div class="results">
+  <p class="results__summary">
+    Showing {{ londoners | length }} people listed as living in London or who
+    are within {{ radius }} miles of London.
+  </p>
+
+  <ul class="results__list">
+    {% for londoner in londoners %}
+    <li>
+      <h2>{{ londoner.first_name }} {{ londoner.last_name }}</h2>
+      <a href="{{ londoner.email }}" class="result__email"
+        >{{ londoner.email }}</a
+      >
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %} {% endblock %} {% block script %}
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/bouncer@1/dist/bouncer.polyfills.min.js"></script>
+<script>
+  var validate = new Bouncer("#londoners", {
+    messageAfterField: false,
+    messages: {
+      missingValue: {
+        default: "Please enter a whole number",
+      },
+      patternMismatch: {
+        default: "Please enter a whole number",
+      },
+    },
+  });
+</script>
+{% endblock %}

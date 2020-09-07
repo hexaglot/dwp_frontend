@@ -1,0 +1,133 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+body {
+  font-size: 18px;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: sans-serif;
+  border-top: 5px solid #d5008f;
+}
+
+ul[class],
+ol[class] {
+  list-style: none;
+  padding-left: 0;
+}
+
+main > * + * {
+  margin-top: 1em;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+main {
+  display: block; /* for IE11 */
+  margin: 0 auto;
+  max-width: 70ch;
+  width: 100%;
+  padding: 1em;
+}
+
+.results__summary {
+  font-weight: bold;
+}
+
+ul.results__list {
+  padding-top: 1em;
+  margin-top: 0.5em;
+  border-top: 1px black solid;
+}
+
+.results__list li + li {
+  margin-top: 1em;
+  padding-top: 1em;
+  border-top: 1px #cacccd solid;
+}
+
+body *:focus {
+  outline: 3px solid #f2e635;
+  outline-offset: 0;
+  box-shadow: inset 0 0 0 2px;
+}
+
+.search__label {
+  display: block;
+  line-height: 1;
+  font-weight: bold;
+}
+
+.search__hint {
+  color: #708090;
+}
+
+.error-message {
+  color: #f20505;
+}
+
+input {
+  display: inline-block;
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0.2em;
+  height: 2em;
+  border: solid 1px black;
+}
+
+input.error {
+  border-color: #f20505;
+  border-width: 2px;
+}
+
+input[type="submit"] {
+  margin: 0;
+  padding-left: 1em;
+  padding-right: 1em;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+  background: #d5008f;
+  color: #fff;
+}
+
+input[type="text"] {
+  max-width: 5em;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+}

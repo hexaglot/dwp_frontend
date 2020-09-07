@@ -1,0 +1,9 @@
+{% extends "layout.html" %} {% block title %} Londoners - error {% endblock %}
+{% block content %}
+<h1>Error {{ status }}</h1>
+{% if status === 404 %}
+<p>That page can't be found.</p>
+<p>Return to <a href="\">home</a>.</p>
+{% endif %} {% if status === 500 %}
+<p>The service is currently unavailable, please try again later.</p>
+{% endif %} {% endblock %}

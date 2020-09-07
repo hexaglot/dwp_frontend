@@ -1,0 +1,31 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "./bin/www .",
+    "lint": "eslint .",
+    "fmt": "prettier --write ."
+  },
+  "engines": {
+    "node": ">= v12.16.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "0.19.2",
+    "express": "4.17.1",
+    "express-promise-router": "4.0.1",
+    "express-validator": "6.6.1",
+    "geolib": "3.3.1",
+    "nunjucks": "3.2.2"
+  },
+  "devDependencies": {
+    "eslint": "7.4.0",
+    "eslint-config-node": "4.1.0",
+    "eslint-config-prettier": "6.11.0",
+    "prettier": "2.0.5"
+  }
+}
